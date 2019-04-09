@@ -1,6 +1,6 @@
 const Command = require('@netlify/cli-utils')
 const { getAddons, deleteAddon } = require('netlify/src/addons')
-const parseRawFlags = require('../../utils/parseRawFlags')
+const parseRawFlags = require('../../utils/parse-raw-flags')
 const { flags } = require('@oclif/command')
 
 class AddonsDeleteCommand extends Command {
@@ -68,7 +68,11 @@ class AddonsDeleteCommand extends Command {
     if (addonResponse.status === 204) {
       this.log(`Addon "${addonName}" deleted`)
     } else {
-      this.log(`Addon "${addonName}" was not deleted "${addonName}". Returned status: ${addonResponse.status}. Addon deletion must return status 204 from "${addonName}" provider.`)
+      this.log(
+        `Addon "${addonName}" was not deleted "${addonName}". Returned status: ${
+          addonResponse.status
+        }. Addon deletion must return status 204 from "${addonName}" provider.`
+      )
     }
   }
 }
