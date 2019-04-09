@@ -133,8 +133,7 @@
         "./src/hooks/init"
       ],
       "analytics": [
-        "./src/hooks/analytics",
-        "./src/hooks/hooks-two"
+        "./src/hooks/analytics"
       ]
     }
   },
